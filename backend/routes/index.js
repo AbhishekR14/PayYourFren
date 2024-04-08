@@ -1,6 +1,6 @@
 const express = require("express");
 import userRouter from "./users";
-import accountsRouter from "./account;
+import accountsRouter from "./account";
 
 const rootRouter = express.Router();
 
