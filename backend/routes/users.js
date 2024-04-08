@@ -2,8 +2,8 @@ const express = require("express");
 const zod = require("zod");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config");
-import { User, Account } from "../db.js";
-import { authMiddleware } from "../middlewares.js";
+const { User, Account } = require("../db.js");
+const { authMiddleware } = require("../middlewares.js");
 
 const userRouter = express.Router();
 
@@ -18,9 +18,12 @@ const signinBody = zod.object({
   password: zod.string(),
 });
 const updateUser = zod.object({
-  password: zod.string().optional().minLength(6),
+  password: zod.string().optional(),
   firstName: zod.string().optional(),
   lastName: zod.string().optional(),
+});
+userRouter.get("/test", (req, res) => {
+  res.send(req.body);
 });
 userRouter.post("/signup", async (req, res) => {
   const userInfo = req.body;
@@ -31,7 +34,7 @@ userRouter.post("/signup", async (req, res) => {
     });
   }
   const exsitingUser = await User.findOne({ username: userInfo.username });
-  if (exsitingUser._id) {
+  if (exsitingUser) {
     return res.status(411).send({ message: "Email already taken" });
   } else {
     const user = await User.create({
@@ -95,12 +98,9 @@ userRouter.put("/", authMiddleware, async (req, res) => {
     });
   }
   try {
-    await User.updateOne(
-      {
-        _id: req.userId,
-      },
-      req.body
-    );
+    await User.updateOne(req.body, {
+      id: req.userId,
+    });
     res.json({
       message: "Updated successfully",
     });

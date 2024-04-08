@@ -1,8 +1,8 @@
 const express = require("express");
-import { Account } from "../db";
-import { authMiddleware } from "../middlewares";
+const { Account } = require("../db");
+const { authMiddleware } = require("../middlewares");
 
-const accountsRouter = express.router();
+const accountsRouter = express.Router();
 
 accountsRouter.get("/balance", authMiddleware, async (req, res) => {
   const account = await Account.findOne({ userId: req.userId });
@@ -51,4 +51,4 @@ accountsRouter.post("/transfer", authMiddleware, async (req, res) => {
   });
 });
 
-export default accountsRouter;
+module.exports = accountsRouter;

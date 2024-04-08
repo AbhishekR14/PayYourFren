@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose.connect(
-  "mongodb+srv://aranjan0288:96I3aYSeGRKPkZJj@payyourfrenbasic.h5a6onx.mongodb.net/admin"
+  "mongodb+srv://aranjan0288:96I3aYSeGRKPkZJj@payyourfrenbasic.h5a6onx.mongodb.net/PayYourFren"
 );
 const User = mongoose.model("Users", {
   username: String,
@@ -22,4 +22,4 @@ const Account = mongoose.model("Accounts", {
   },
 });
 
-export { User, Account };
+module.exports = { User, Account };
