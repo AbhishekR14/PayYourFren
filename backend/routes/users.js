@@ -22,9 +22,6 @@ const updateUser = zod.object({
   firstName: zod.string().optional(),
   lastName: zod.string().optional(),
 });
-userRouter.get("/test", (req, res) => {
-  res.send(req.body);
-});
 userRouter.post("/signup", async (req, res) => {
   const userInfo = req.body;
   const { success } = signupBody.safeParse(userInfo);
