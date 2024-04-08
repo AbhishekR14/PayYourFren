@@ -10,4 +10,16 @@ const User = mongoose.model("Users", {
   lastName: String,
 });
 
-export default User;
+const Account = mongoose.model("Accounts", {
+  userId: {
+    type: mongoose.Schema.Types.ObjectId, // Reference to User table
+    ref: "User",
+    required: true,
+  },
+  balance: {
+    type: Number,
+    required: true,
+  },
+});
+
+export { User, Account };
