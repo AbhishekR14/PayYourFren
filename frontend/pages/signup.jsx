@@ -11,6 +11,7 @@ function signup() {
   const [lastName, setlastName] = React.useState("");
   const [emailId, setEmailId] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [signinSuccess, setsigninSuccess] = React.useState(false);
   return (
     <div className="bg-slate-300 h-screen flex justify-center">
       <div className="flex flex-col justify-center">
@@ -48,21 +49,37 @@ function signup() {
           <div className="pt-4">
             <Button
               label={"Sign up"}
-              onClick={() => {
-                axios.post("http://localhost:3000/api/v1/user/signup", {
-                  username: emailId,
-                  password: password,
-                  firstName: firstName,
-                  lastName: lastName,
-                });
+              onClick={async () => {
+                const res = await axios.post(
+                  "http://localhost:3000/api/v1/user/signup",
+                  {
+                    username: emailId,
+                    password: password,
+                    firstName: firstName,
+                    lastName: lastName,
+                  }
+                );
+                localStorage.setItem("authToken", res.data.token);
+                if (res.data.message === "User created successfully") {
+                  setsigninSuccess(true);
+                }
               }}
             />
           </div>
-          <BottomWarning
-            label={"Already have an account?"}
-            buttonText={"Sign in"}
-            to={"/signin"}
-          />
+          {signinSuccess == true && (
+            <BottomWarning
+              label={"User created successfully! Please"}
+              buttonText={"Sign in"}
+              to={"/signin"}
+            />
+          )}
+          {signinSuccess == false && (
+            <BottomWarning
+              label={"Already have an account?"}
+              buttonText={"Sign in"}
+              to={"/signin"}
+            />
+          )}
         </div>
       </div>
     </div>
