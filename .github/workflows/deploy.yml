@@ -35,12 +35,11 @@ jobs:
         with:
           node-version: 18
           cache: "npm"
-      - name: Go to Frontend
-        run: cd .\frontend\
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
+      - name: Build Frontend
+        run: |
+            cd frontend 
+            npm install
+            npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
