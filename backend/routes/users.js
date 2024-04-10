@@ -71,8 +71,8 @@ userRouter.post("/signin", async (req, res) => {
     username: req.body.username,
     password: req.body.password,
   });
-  const userId = exsitingUser._id;
-  if (exsitingUser._id) {
+  if (exsitingUser) {
+    const userId = exsitingUser._id;
     const token = jwt.sign(
       {
         userId,
