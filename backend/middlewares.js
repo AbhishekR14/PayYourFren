@@ -16,7 +16,7 @@ const authMiddleware = function (req, res, next) {
       return res.status(403).json({});
     }
   } catch (err) {
-    return res.status(403).json({});
+    return res.status(403).json({ message: "Could not authenticate" });
   }
 };
 
