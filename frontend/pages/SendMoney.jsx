@@ -13,7 +13,7 @@ export const SendMoney = () => {
                   AR
                 </div>
               </div>
-              <div className="h-12 flex justify-center mt-1 mr-2">
+              <div className="h-12 w-full flex justify-center mt-1 mr-2">
                 <div className="flex flex-col justify-center h-full text-xl">
                   Ram
                 </div>
