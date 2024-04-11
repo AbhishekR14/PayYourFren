@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import Signup from "../pages/signup.jsx";
 import Signin from "../pages/signin.jsx";
 import { SendMoney } from "../pages/SendMoney.jsx";
-import App from "./App.jsx";
 import Dashboard from "../pages/dashboard.jsx";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";

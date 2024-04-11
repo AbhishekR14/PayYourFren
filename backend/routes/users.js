@@ -136,4 +136,15 @@ userRouter.get("/bulk", authMiddleware, async (req, res) => {
   });
 });
 
+userRouter.get("/getusername", authMiddleware, async (req, res) => {
+  const user = await User.findById({ _id: req.userId });
+  if (user) {
+    res
+      .status(200)
+      .send({ firstname: user.firstName, lastname: user.lastName });
+  } else {
+    res.status(411).send({ message: "User not found" });
+  }
+});
+
 module.exports = userRouter;
