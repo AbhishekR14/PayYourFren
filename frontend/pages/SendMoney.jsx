@@ -13,8 +13,10 @@ export const SendMoney = () => {
                   A
                 </div>
               </div>
-              <div className="flex flex-col justify-center h-full mr-4">
-                Hello
+              <div className="h-12 w-12 flex justify-center mt-1 mr-2">
+                <div className="flex flex-col justify-center h-full text-xl">
+                  Ram
+                </div>
               </div>
             </div>
             <div class="space-y-4">
