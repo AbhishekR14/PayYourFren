@@ -137,7 +137,7 @@ userRouter.get("/bulk", authMiddleware, async (req, res) => {
 });
 
 userRouter.get("/getusername", authMiddleware, async (req, res) => {
-  const user = await User.findById({ _id: req.userId });
+  const user = await User.findOne({ _id: req.userId });
   if (user) {
     res
       .status(200)
