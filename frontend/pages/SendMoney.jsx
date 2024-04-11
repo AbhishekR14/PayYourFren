@@ -2,7 +2,7 @@ export const SendMoney = () => {
   return (
     <div class="flex justify-center h-screen bg-gray-100">
       <div className="h-full flex flex-col justify-center">
-        <div class="border h-min text-card-foreground max-w-md p-4 space-y-8 w-96 bg-white shadow-lg rounded-lg">
+        <div class="border h-min text-card-foreground max-w-md p-4 space-y-8  bg-white shadow-lg rounded-lg">
           <div class="flex flex-col space-y-1.5 p-6">
             <h2 class="text-3xl font-bold text-center">Send Money</h2>
           </div>
@@ -13,7 +13,7 @@ export const SendMoney = () => {
                   A
                 </div>
               </div>
-              <div className="h-12 w-12 flex justify-center mt-1 mr-2">
+              <div className="h-12 flex justify-center mt-1 mr-2">
                 <div className="flex flex-col justify-center h-full text-xl">
                   Ram
                 </div>
