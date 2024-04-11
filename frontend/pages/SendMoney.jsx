@@ -8,7 +8,7 @@ export const SendMoney = () => {
           </div>
           <div class="p-6">
             <div class="flex items-center justify-center space-x-4">
-              <div className="rounded-full h-12 w-18 bg-slate-200 flex justify-center mt-1 mr-2">
+              <div className="rounded-full h-12 w-16 bg-slate-200 flex justify-center mt-1 mr-2">
                 <div className="flex flex-col justify-center h-full text-xl">
                   AR
                 </div>
