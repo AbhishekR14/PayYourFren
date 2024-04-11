@@ -4,7 +4,6 @@ import React from "react";
 import axios from "axios";
 
 export function Users(props) {
-  // Replace with backend call
   const [filter, setFilter] = React.useState("");
   const [users, setUsers] = useState([]);
   React.useEffect(
@@ -14,7 +13,9 @@ export function Users(props) {
         if (filter == "") {
           urltocall = "https://payyourfren.onrender.com/api/v1/user/bulk";
         } else {
-          urltocall = "https://payyourfren.onrender.com/api/v1/user/bulk?filter=" + filter;
+          urltocall =
+            "https://payyourfren.onrender.com/api/v1/user/bulk?filter=" +
+            filter;
         }
         const res = await axios.get(urltocall, {
           headers: {
@@ -42,7 +43,7 @@ export function Users(props) {
       </div>
       <div>
         {users.map((user) => (
-          <User user={user} />
+          <User user={user} key={user._id} />
         ))}
       </div>
     </div>
