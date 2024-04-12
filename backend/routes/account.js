@@ -1,7 +1,7 @@
 const express = require("express");
 const { Account } = require("../db");
 const { authMiddleware } = require("../middlewares");
-const { default: mongoose } = require('mongoose');
+const { default: mongoose } = require("mongoose");
 
 const accountsRouter = express.Router();
 
@@ -48,7 +48,7 @@ accountsRouter.post("/transfer", authMiddleware, async (req, res) => {
   // Commit the transaction
   await session.commitTransaction();
   res.status(200).json({
-    message: "Transfer successful",
+    message: "Transfer successful!",
   });
 });
 
