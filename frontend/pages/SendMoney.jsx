@@ -59,21 +59,24 @@ export const SendMoney = () => {
               <button
                 class="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-green-500 text-white"
                 onClick={async () => {
-                  const res = await axios.post(
-                    "https://payyourfren.onrender.com/api/v1/account/transfer",
-                    body,
-                    {
-                      headers: {
-                        authorization:
-                          "Bearer " + localStorage.getItem("authToken"),
-                      },
+                  try {
+                    const res = await axios.post(
+                      "https://payyourfren.onrender.com/api/v1/account/transfer",
+                      body,
+                      {
+                        headers: {
+                          authorization:
+                            "Bearer " + localStorage.getItem("authToken"),
+                        },
+                      }
+                    );
+                    if (res.status == 200) {
+                      setTranscationStatus(true);
+                      setResMessage(res.data.message);
                     }
-                  );
-                  if (res.status == 200) {
-                    setTranscationStatus(true);
-                    setResMessage(res.data.message);
-                  } else if (res.status == 400) {
-                    setResMessage(res.data.message);
+                  } catch (e) {
+                    console.log(e);
+                    setResMessage(e.response.data.message);
                   }
                 }}
               >
