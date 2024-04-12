@@ -1,4 +1,12 @@
+import axios from "axios";
+import { useSearchParams } from "react-router-dom";
+import React from "react";
+
 export const SendMoney = () => {
+  const [seachParams] = useSearchParams();
+  const id = seachParams.get("id");
+  const firstname = seachParams.get("firstname");
+  const lastname = seachParams.get("lastname");
   return (
     <div class="flex justify-center h-dvh bg-gray-100">
       <div className="h-full flex flex-col justify-center">
@@ -10,12 +18,13 @@ export const SendMoney = () => {
             <div class="flex items-center justify-center space-x-4">
               <div className="rounded-full h-12 w-16 bg-slate-200 flex justify-center mt-1 mr-2">
                 <div className="flex flex-col justify-center h-full text-xl">
-                  AR
+                  {firstname[0].toUpperCase()}
+                  {lastname[0].toUpperCase()}
                 </div>
               </div>
               <div className="h-12 w-full flex justify-center mt-1 mr-2">
                 <div className="flex flex-col justify-center h-full text-xl">
-                  Ram
+                  {firstname}
                 </div>
               </div>
             </div>

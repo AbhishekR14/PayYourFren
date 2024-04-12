@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "./Button";
 import React from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export function Users(props) {
   const [filter, setFilter] = React.useState("");
@@ -51,12 +52,13 @@ export function Users(props) {
 }
 
 function User({ user }) {
+  const navigate = useNavigate();
   return (
     <div className="flex justify-between">
       <div className="flex">
         <div className="rounded-full h-12 w-12 bg-slate-200 flex justify-center mt-1 mr-2">
           <div className="flex flex-col justify-center h-full text-xl">
-            {user.firstName[0] + user.lastName[0]}
+            {user.firstName[0].toUpperCase() + user.lastName[0].toUpperCase()}
           </div>
         </div>
         <div className="flex flex-col justify-center h-ful">
@@ -67,7 +69,19 @@ function User({ user }) {
       </div>
 
       <div className="flex flex-col justify-center h-ful">
-        <Button label={"Send Money"} />
+        <Button
+          label={"Send Money"}
+          onClick={() => {
+            navigate(
+              "/send?id=" +
+                user._id +
+                "&firstname=" +
+                user.firstName +
+                "&lastname=" +
+                user.lastName
+            );
+          }}
+        />
       </div>
     </div>
   );
