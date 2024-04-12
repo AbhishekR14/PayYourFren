@@ -25,7 +25,7 @@ export const SendMoney = () => {
           </div>
           <div class="p-6">
             <div class="flex items-center justify-center space-x-4">
-              <div className="rounded-full h-12 w-16 bg-slate-200 flex justify-center mt-1 mr-2">
+              <div className="rounded-full h-12 w-16 bg-green-400 flex justify-center mt-1 mr-2">
                 <div className="flex flex-col justify-center h-full text-xl">
                   {firstname[0].toUpperCase()}
                   {lastname[0].toUpperCase()}
@@ -57,7 +57,7 @@ export const SendMoney = () => {
               </div>
               <div>{resMessage}</div>
               <button
-                class="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-gray-800 text-white"
+                class="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-green-500 text-white"
                 onClick={async () => {
                   const res = await axios.post(
                     "https://payyourfren.onrender.com/api/v1/account/transfer",
