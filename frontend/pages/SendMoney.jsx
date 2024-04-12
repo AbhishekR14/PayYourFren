@@ -55,7 +55,7 @@ export const SendMoney = () => {
                   }}
                 />
               </div>
-              {resMessage != "" && <>{resMessage}</>}
+              <div>{resMessage}</div>
               <button
                 class="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-gray-800 text-white"
                 onClick={async () => {
