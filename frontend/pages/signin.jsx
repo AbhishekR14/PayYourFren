@@ -56,6 +56,11 @@ function signin() {
           </div>
           {signinFailed === "Yes" && <BottomWarning label={"Try Again!"} />}
           <BottomWarning
+            label={"Already signed in before?"}
+            buttonText={"Try One Click Signin"}
+            to={"/dashboard"}
+          />
+          <BottomWarning
             label={"Don't have an account?"}
             buttonText={"Sign up"}
             to={"/signup"}

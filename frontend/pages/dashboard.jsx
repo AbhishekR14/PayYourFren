@@ -3,6 +3,7 @@ import { Balance } from "../components/Balance";
 import { Users } from "../components/Users";
 import axios from "axios";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function costToTwoDecimals(cost) {
   return cost.toFixed(2);
@@ -12,6 +13,8 @@ function Dashboard() {
   const [firstname, setFirstname] = React.useState("");
   const [logoname, setLogoname] = React.useState("");
   const [balance, setBalance] = React.useState("");
+  const [notSignedIn, setNotSignedIn] = React.useState(true);
+  const navigate = useNavigate();
   React.useEffect(function () {
     async function getinfo() {
       const res = await axios.get(
@@ -22,6 +25,9 @@ function Dashboard() {
           },
         }
       );
+      if (res.status == 200) {
+        setNotSignedIn(false);
+      }
       setFirstname(res.data.firstname);
       setLogoname(
         res.data.firstname[0].toUpperCase() + res.data.lastname[0].toUpperCase()
@@ -42,6 +48,13 @@ function Dashboard() {
       setBalance(costToTwoDecimals(res.data.balance));
     }
     getbalance();
+  }, []);
+
+  React.useEffect(() => {
+    if (notSignedIn) {
+      alert("Please Sign in");
+      navigate("/signin");
+    }
   }, []);
   return (
     <div>
