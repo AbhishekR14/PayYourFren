@@ -23,7 +23,9 @@ function Dashboard() {
         }
       );
       setFirstname(res.data.firstname);
-      setLogoname(res.data.firstname[0] + res.data.lastname[0]);
+      setLogoname(
+        res.data.firstname[0].ToUpper() + res.data.lastname[0].ToUpper()
+      );
     }
     getinfo();
   }, []);
