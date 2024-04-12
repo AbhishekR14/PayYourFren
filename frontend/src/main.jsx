@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter basename={import.meta.env.DEV ? "/" : "/PayYourFren/"}>
       <Routes>
-        <Route path="/" element={<Signup />}></Route>
+        <Route path="/" element={<Signin />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/signin" element={<Signin />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
