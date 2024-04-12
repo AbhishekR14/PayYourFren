@@ -58,7 +58,26 @@ function signin() {
           <BottomWarning
             label={"Already signed in before?"}
             buttonText={"Try One Click Signin"}
-            to={"/dashboard"}
+            onClick={async () => {
+              try {
+                const res = await axios.get(
+                  "https://payyourfren.onrender.com/api/v1/user/getusername",
+                  {
+                    headers: {
+                      authorization:
+                        "Bearer " + localStorage.getItem("authToken"),
+                    },
+                  }
+                );
+                if (res.status == 200) {
+                  navigate("/dashboard");
+                } else {
+                  alert("Please Sign In!");
+                }
+              } catch (e) {
+                alert("Please SIgn In");
+              }
+            }}
           />
           <BottomWarning
             label={"Don't have an account?"}
