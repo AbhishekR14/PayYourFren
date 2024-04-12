@@ -23,9 +23,7 @@ function Dashboard() {
         }
       );
       setFirstname(res.data.firstname);
-      setLogoname(
-        res.data.firstname[0].ToUpper() + res.data.lastname[0].ToUpper()
-      );
+      setLogoname(res.data.firstname[0] + res.data.lastname[0]);
     }
     getinfo();
   }, []);
