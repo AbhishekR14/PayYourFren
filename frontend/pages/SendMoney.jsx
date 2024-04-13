@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 export const SendMoney = () => {
   const [amount, setAmount] = React.useState(0);
   const [resMessage, setResMessage] = React.useState("");
-  const [transcationStatus, setTranscationStatus] = React.useState(false);
   const [seachParams] = useSearchParams();
   const id = seachParams.get("id");
   const firstname = seachParams.get("firstname");
@@ -71,7 +70,6 @@ export const SendMoney = () => {
                       }
                     );
                     if (res.status == 200) {
-                      setTranscationStatus(true);
                       setResMessage(res.data.message);
                     }
                   } catch (e) {
