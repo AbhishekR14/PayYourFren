@@ -5,6 +5,7 @@ import { Subheading } from "../components/Subheading";
 import { Inputbox } from "../components/Inputbox";
 import { Button } from "../components/Button";
 import { BottomWarning } from "../components/BottomWarning";
+import Awake from "../Utils/Awake";
 
 function signup() {
   const [firstName, setFirstName] = React.useState("");
@@ -12,6 +13,7 @@ function signup() {
   const [emailId, setEmailId] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [signinSuccess, setsigninSuccess] = React.useState(false);
+  React.useEffect(Awake, []);
   return (
     <div className="bg-slate-300 h-screen flex justify-center">
       <div className="flex flex-col justify-center">
