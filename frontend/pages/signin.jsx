@@ -6,14 +6,22 @@ import { Subheading } from "../components/Subheading";
 import { Inputbox } from "../components/Inputbox";
 import { Button } from "../components/Button";
 import { BottomWarning } from "../components/BottomWarning";
-import Awake from "../Utils/Awake";
 
 function signin() {
   const navigate = useNavigate();
   const [emailId, setEmailId] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [signinFailed, setsigninFailed] = React.useState("No");
-  React.useEffect(Awake, []);
+  React.useEffect(function () {
+    async function Awake() {
+      try {
+        const response = await axios.get(
+          "https://payyourfren.onrender.com/api/v1/wakeup"
+        );
+      } catch (e) {}
+    }
+    Awake();
+  }, []);
   return (
     <div className="bg-slate-300 h-screen flex justify-center">
       <div className="flex flex-col justify-center">
