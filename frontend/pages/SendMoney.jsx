@@ -10,6 +10,7 @@ export const SendMoney = () => {
   const id = seachParams.get("id");
   const firstname = seachParams.get("firstname");
   const lastname = seachParams.get("lastname");
+  const [loading, setLoading] = React.useState("");
   const navigate = useNavigate();
   var body = {
     amount: amount,
@@ -54,11 +55,12 @@ export const SendMoney = () => {
                   }}
                 />
               </div>
-              <div>{resMessage}</div>
+              <div>{loading === "" ? resMessage : loading}</div>
               <button
                 class="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-green-500 text-white"
                 onClick={async () => {
                   try {
+                    setLoading("Transferring, Please wait...");
                     const res = await axios.post(
                       "https://payyourfren.onrender.com/api/v1/account/transfer",
                       body,
@@ -75,6 +77,8 @@ export const SendMoney = () => {
                   } catch (e) {
                     console.log(e);
                     setResMessage(e.response.data.message);
+                  } finally {
+                    setLoading("");
                   }
                 }}
               >

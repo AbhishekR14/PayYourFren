@@ -12,6 +12,7 @@ function signin() {
   const [emailId, setEmailId] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [signinFailed, setsigninFailed] = React.useState("No");
+  const [loading, setLoading] = React.useState("");
   React.useEffect(function () {
     async function Awake() {
       try {
@@ -47,6 +48,7 @@ function signin() {
               label={"Sign in"}
               onClick={async () => {
                 try {
+                  setLoading("Validating, Please wait...");
                   const res = await axios.post(
                     "https://payyourfren.onrender.com/api/v1/user/signin",
                     {
@@ -60,16 +62,20 @@ function signin() {
                   }
                 } catch (err) {
                   setsigninFailed("Yes");
+                } finally {
+                  setLoading("");
                 }
               }}
             />
           </div>
+          {loading != "" && <BottomWarning label={loading} />}
           {signinFailed === "Yes" && <BottomWarning label={"Try Again!"} />}
           <BottomWarning
             label={"Already signed in before?"}
             buttonText={"Try One Click Signin"}
             onClick={async () => {
               try {
+                setLoading("Validating, Please wait...");
                 const res = await axios.get(
                   "https://payyourfren.onrender.com/api/v1/user/getusername",
                   {
@@ -85,7 +91,9 @@ function signin() {
                   alert("Please Sign In!");
                 }
               } catch (e) {
-                alert("Please SIgn In");
+                alert("Please Sign In");
+              } finally {
+                setLoading("");
               }
             }}
           />
