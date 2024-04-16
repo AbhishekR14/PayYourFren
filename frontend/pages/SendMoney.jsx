@@ -62,7 +62,7 @@ export const SendMoney = () => {
                   try {
                     setLoading("Transferring, Please wait...");
                     const res = await axios.post(
-                      "https://payyourfren.onrender.com/api/v1/account/transfer",
+                      "https://pay-your-fren.vercel.app/api/v1/account/transfer",
                       body,
                       {
                         headers: {

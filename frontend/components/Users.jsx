@@ -12,10 +12,10 @@ export function Users(props) {
       async function getusers() {
         let urltocall = "";
         if (filter == "") {
-          urltocall = "https://payyourfren.onrender.com/api/v1/user/bulk";
+          urltocall = "https://pay-your-fren.vercel.app/api/v1/user/bulk";
         } else {
           urltocall =
-            "https://payyourfren.onrender.com/api/v1/user/bulk?filter=" +
+            "https://pay-your-fren.vercel.app/api/v1/user/bulk?filter=" +
             filter;
         }
         const res = await axios.get(urltocall, {

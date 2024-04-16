@@ -20,7 +20,7 @@ function signup() {
     async function Awake() {
       try {
         const response = await axios.get(
-          "https://payyourfren.onrender.com/api/v1/wakeup"
+          "https://pay-your-fren.vercel.app/api/v1/wakeup"
         );
       } catch (e) {}
     }
@@ -68,7 +68,7 @@ function signup() {
                   setLoading("Validating, Please wait...");
                   setsigninError("");
                   const res = await axios.post(
-                    "https://payyourfren.onrender.com/api/v1/user/signup",
+                    "https://pay-your-fren.vercel.app/api/v1/user/signup",
                     {
                       username: emailId,
                       password: password,
@@ -98,7 +98,7 @@ function signup() {
                 try {
                   setLoading("Validating, Please wait...");
                   const res = await axios.get(
-                    "https://payyourfren.onrender.com/api/v1/user/getusername",
+                    "https://pay-your-fren.vercel.app/api/v1/user/getusername",
                     {
                       headers: {
                         authorization:

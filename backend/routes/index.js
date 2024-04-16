@@ -1,7 +1,6 @@
 const express = require("express");
 const userRouter = require("./users");
 const accountsRouter = require("./account");
-const axios = require("axios");
 
 const rootRouter = express.Router();
 

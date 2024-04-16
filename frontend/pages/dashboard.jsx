@@ -15,7 +15,7 @@ function Dashboard() {
   React.useEffect(function () {
     async function getinfo() {
       const res = await axios.get(
-        "https://payyourfren.onrender.com/api/v1/user/getusername",
+        "https://pay-your-fren.vercel.app/api/v1/user/getusername",
         {
           headers: {
             authorization: "Bearer " + localStorage.getItem("authToken"),
@@ -32,7 +32,7 @@ function Dashboard() {
   React.useEffect(function () {
     async function getbalance() {
       const res = await axios.get(
-        "https://payyourfren.onrender.com/api/v1/account/balance",
+        "https://pay-your-fren.vercel.app/api/v1/account/balance",
         {
           headers: {
             authorization: "Bearer " + localStorage.getItem("authToken"),
