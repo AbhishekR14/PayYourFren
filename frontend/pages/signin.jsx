@@ -13,7 +13,7 @@ function signin() {
   const [password, setPassword] = React.useState("");
   const [signinFailed, setsigninFailed] = React.useState("No");
   const [loading, setLoading] = React.useState("");
-  React.useEffect(function () {
+  /*React.useEffect(function () {
     async function Awake() {
       try {
         const response = await axios.get(
@@ -22,7 +22,7 @@ function signin() {
       } catch (e) {}
     }
     Awake();
-  }, []);
+  }, []);*/
   return (
     <div className="bg-slate-300 h-screen flex justify-center">
       <div className="flex flex-col justify-center">

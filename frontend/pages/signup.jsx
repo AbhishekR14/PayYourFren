@@ -16,7 +16,7 @@ function signup() {
   const [signinSuccess, setsigninSuccess] = React.useState(false);
   const [signinError, setsigninError] = React.useState("");
   const [loading, setLoading] = React.useState("");
-  React.useEffect(function () {
+  /*React.useEffect(function () {
     async function Awake() {
       try {
         const response = await axios.get(
@@ -25,7 +25,7 @@ function signup() {
       } catch (e) {}
     }
     Awake();
-  }, []);
+  }, []);*/
   return (
     <div className="bg-slate-300 h-screen flex justify-center">
       <div className="flex flex-col justify-center">
