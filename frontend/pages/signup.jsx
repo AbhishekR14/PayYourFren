@@ -16,7 +16,7 @@ function signup() {
   const [signinSuccess, setsigninSuccess] = React.useState(false);
   const [signinError, setsigninError] = React.useState("");
   const [loading, setLoading] = React.useState("");
-  /*React.useEffect(function () {
+  React.useEffect(function () {
     async function Awake() {
       try {
         const response = await axios.get(
@@ -25,13 +25,13 @@ function signup() {
       } catch (e) {}
     }
     Awake();
-  }, []);*/
+  }, []);
   return (
     <div className="bg-slate-300 h-screen flex justify-center">
       <div className="flex flex-col justify-center">
         <div className="rounded-lg bg-white w-80 text-center p-2 h-max px-4">
           <Heading label={"Sign up"} />
-          <Subheading label={"Enter your infromation to create an account"} />
+          <Subheading label={"Enter your information to create an account"} />
           <Inputbox
             placeholder="John"
             label={"First Name"}
